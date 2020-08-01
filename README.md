@@ -10,8 +10,8 @@ This git repo provides everything needed to deploy the latest version of [Sensu 
 
 The original Docker images were built by sstarcher in these projects:
 
- [https://github.com/sstarcher/docker-sensu]
- [https://github.com/sstarcher/docker-uchiwa]
+- [https://github.com/sstarcher/docker-sensu]
+- [https://github.com/sstarcher/docker-uchiwa]
 
 ## Install Repos
 
@@ -23,6 +23,12 @@ https://sensu.global.ssl.fastly.net/apt/pool/bionic/main/u/uchiwa/
 
 ### Sensu
 
+Environment variables:
+
+```
+REDIS_HOST
+REDIS_PORT
+```
 
 ### Uchiwa
 
