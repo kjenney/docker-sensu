@@ -1,7 +1,7 @@
 FROM ruby:2.5-slim-stretch
 MAINTAINER Shane Starcher <shanestarcher@gmail.com>
 
-ARG SENSU_VERSION=1.6.1-1
+ARG SENSU_VERSION=1.9.0-1
 ARG DUMB_INIT_VERSION=1.2.0
 ARG ENVTPL_VERSION=0.2.3
 
@@ -14,7 +14,9 @@ RUN \
     echo "LANG=en_US.UTF-8" > /etc/locale.conf &&\
     locale-gen en_US.UTF-8 &&\
     find /usr/share/i18n/locales ! -name en_US -type f -exec rm -v {} + &&\
-    find /usr/share/i18n/charmaps ! -name UTF-8.gz -type f -exec rm -v {} + &&\
+    find /usr/share/i18n/charmaps ! -name UTF-8.gz -type f -exec rm -v {} + 
+
+RUN \
     # Install Sensu
     curl -s https://sensu.global.ssl.fastly.net/apt/pubkey.gpg | apt-key add - &&\
     echo "deb https://sensu.global.ssl.fastly.net/apt stretch main" > /etc/apt/sources.list.d/sensu.list &&\
@@ -37,6 +39,9 @@ RUN \
     mkdir -p /etc/sensu/conf.d /etc/sensu/check.d /etc/sensu/extensions /etc/sensu/plugins /etc/sensu/handlers &&\
     # Undo world writable bundle directory, see https://github.com/docker-library/ruby/issues/74
     chmod -R o-w /usr/local/bundle
+
+RUN dpkg -l | grep sensu
+RUN apt list | grep sensu
 
 COPY templates /etc/sensu/templates
 COPY bin /bin/

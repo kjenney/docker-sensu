@@ -2,7 +2,7 @@ version: '2'
 services:
   api:
     build:
-      context: .
+      context: ./sensu
       args:
         - http_proxy
         - https_proxy
@@ -11,10 +11,10 @@ services:
       - redis
     command: api
     ports:
-      - '4567:4567'  
+      - '4567:4567'
   server:
     build:
-      context: .
+      context: ./sensu
       args:
         - http_proxy
         - https_proxy
@@ -25,7 +25,7 @@ services:
     command: server
   client:
     build:
-      context: .
+      context: ./sensu
       args:
         - http_proxy
         - https_proxy
@@ -37,16 +37,17 @@ services:
       CLIENT_SUBSCRIPTIONS: all
       CLIENT_ADDRESS: 127.0.0.1
     ports:
-      - '3030:3030'    
+      - '3030:3030'
     command: client
   redis:
-    image: redis:3  
+    image: redis:3
   uchiwa:
-    image: sstarcher/uchiwa
+    build:
+      context: ./uchiwa
     environment:
       SENSU_DC_NAME: test
       SENSU_HOSTNAME: api
     links:
-      - api    
+      - api
     ports:
       - '80:3000'
