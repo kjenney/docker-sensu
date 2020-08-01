@@ -136,3 +136,9 @@ Examples:
   * RUNTIME_INSTALL='sensu-plugins/disk-checks@2.5.1 will install tag 0.5.1
 * https://github.com/sstarcher/sensu-plugins-http
   * RUNTIME_INSTALL='sstarcher/http` will install the master branch from the sstarcher organization on github for http
+  
+## Install Repos
+
+https://github.com/sensu/sensu/tags
+https://sensu.global.ssl.fastly.net/apt/pool/bionic/main/u/uchiwa/
+
