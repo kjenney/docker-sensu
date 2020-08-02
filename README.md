@@ -23,6 +23,8 @@ The original Docker images were built by [sstarcher](https://github.com/sstarche
 
 ### Sensu
 
+Custom checks and plugins are added from sensu/checks and sensu/plugins respectively.
+
 Environment variables:
 
 ```
