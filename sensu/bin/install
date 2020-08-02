@@ -3,6 +3,8 @@ set -e
 
 if [[ $# -eq 0 ]]; then
 	exit
+else
+	echo "------ INSTALLING STUFF -------"
 fi
 
 if [ -n "$GEM_SOURCES" ] && ! [ -e "/tmp/gem_sources_added" ]; then
