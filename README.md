@@ -8,7 +8,7 @@ This git repo provides everything needed to deploy the latest version of [Sensu 
 * Sensu client
 * Uchiwa
 
-The original Docker images were built by sstarcher in these projects:
+The original Docker images were built by [sstarcher](https://github.com/sstarcher) in these projects:
 
 - [https://github.com/sstarcher/docker-sensu]
 - [https://github.com/sstarcher/docker-uchiwa]
