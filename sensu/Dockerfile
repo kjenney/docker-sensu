@@ -14,9 +14,7 @@ RUN \
     echo "LANG=en_US.UTF-8" > /etc/locale.conf &&\
     locale-gen en_US.UTF-8 &&\
     find /usr/share/i18n/locales ! -name en_US -type f -exec rm -v {} + &&\
-    find /usr/share/i18n/charmaps ! -name UTF-8.gz -type f -exec rm -v {} + 
-
-RUN \
+    find /usr/share/i18n/charmaps ! -name UTF-8.gz -type f -exec rm -v {} + &&\
     # Install Sensu
     curl -s https://sensu.global.ssl.fastly.net/apt/pubkey.gpg | apt-key add - &&\
     echo "deb https://sensu.global.ssl.fastly.net/apt stretch main" > /etc/apt/sources.list.d/sensu.list &&\
@@ -94,6 +92,9 @@ ENV SENSU_VERSION=${SENSU_VERSION} \
     LC_ALL=en_US.UTF-8 \
     # -W0 avoids sensu client output to be spoiled with ruby 2.4 warnings
     RUBYOPT=-W0
+
+COPY checks/* ${CHECK_DIR}
+COPY plugins/* ${PLUGINS_DIR}
 
 EXPOSE 4567
 VOLUME ["/etc/sensu/conf.d"]
