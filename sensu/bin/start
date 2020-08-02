@@ -14,6 +14,7 @@ process_template(){
 if [[ "${VALIDATE_ONLY}" == "true" ]]; then
   echo "Skipping install step because the VALIDATE_ONLY flag is set"
 else
+  echo "Installing stuff"
   /bin/install $RUNTIME_INSTALL
 fi
 
@@ -27,7 +28,6 @@ case "$SENSU_SERVICE" in
   client)
     DEPENDENCIES="client transport"
     DIRS="$CONFIG_DIR"
-    rm -rf ${CHECK_DIR}/*
 
     if [[ "${TRANSPORT_NAME}" == "redis" ]]; then
       DEPENDENCIES="redis $DEPENDENCIES"
