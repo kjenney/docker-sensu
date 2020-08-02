@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "sensu-website": {
+      "command": "/etc/sensu/plugins/check-http.rb -u https://sensuapp.org/",
+      "subscribers": [
+        "all"
+      ],
+      "interval": 60,
+      "contact": "ops"
+    }
+  }
+}
