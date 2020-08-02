@@ -15,8 +15,8 @@ The original Docker images were built by [sstarcher](https://github.com/sstarche
 
 ## Install Repos
 
-https://github.com/sensu/sensu/tags
-https://sensu.global.ssl.fastly.net/apt/pool/bionic/main/u/uchiwa/
+- https://github.com/sensu/sensu/tags
+- https://sensu.global.ssl.fastly.net/apt/pool/bionic/main/u/uchiwa/
 
 
 ## Configuration
